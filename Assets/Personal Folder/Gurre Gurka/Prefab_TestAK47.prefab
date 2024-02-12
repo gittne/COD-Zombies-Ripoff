@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1111342168012322143}
   m_Layer: 0
-  m_Name: Prefab_AK47
+  m_Name: Prefab_TestAK47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
