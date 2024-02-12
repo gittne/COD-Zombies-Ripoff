@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Rifle Test
   m_EditorClassIdentifier: 
   weaponType: 3
-  weaponModel: {fileID: 0}
+  weaponModel: {fileID: 1707218878750375350, guid: 517b16f642c03de4485adf7662af4f39,
+    type: 3}
   bulletType: 0
-  bulletModel: {fileID: 0}
+  bulletModel: {fileID: 7406091915709379586, guid: d2f186fd35e40194c946e791823c302c,
+    type: 3}
   weaponFiremode: 0
   weaponSlot: 0
   weaponSpecialProperty: 
@@ -23,6 +25,6 @@ MonoBehaviour:
   firerate: 600
   magazineSize: 30
   reloadTime: 2.5
-  recoil: 0
+  recoil: 5
   damageDropoff: 0
   bulletSpread: 0
