@@ -7,12 +7,8 @@ public class Script_Enemy_Spawner : MonoBehaviour
 
     public int currentWaveIndex {  get; private set; } //A current wave number
 
-    [SerializeField] GameObject[] Horde;
+    public Wave[] waves;
 
-    [SerializeField] int waveAmount; // The Amount of waves in total
-    [SerializeField] int enemiesLeft; // The amount of enemies still alive 
-    [SerializeField] int currentHordeAmount; //the total amount of enemies in that round
-  
 
     // Start is called before the first frame update
     void Start()
@@ -25,4 +21,18 @@ public class Script_Enemy_Spawner : MonoBehaviour
     {
         
     }
+
+    [System.Serializable]
+    public class Wave
+    {
+      public string waveName; 
+      public GameObject[] Horde;// The amount of enemies on the board
+      public float SpawnSpeed;
+
+      public int waveAmount; // The Amount of waves in total
+      public int enemiesLeft; // The amount of enemies still alive 
+      public int currentHordeAmount; //the total amount of enemies in that round
+      
+    }
+
 }
