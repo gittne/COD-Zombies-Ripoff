@@ -10,26 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94177459e4701f847b7191691b6c5f38, type: 3}
-  m_Name: Rifle Test
+  m_Name: SMG Test
   m_EditorClassIdentifier: 
-  weaponType: 3
-  weaponModel: {fileID: 1707218878750375350, guid: 517b16f642c03de4485adf7662af4f39,
-    type: 3}
+  weaponType: 0
+  weaponModel: {fileID: 0}
   bulletType: 0
-  bulletModel: {fileID: 7406091915709379586, guid: d2f186fd35e40194c946e791823c302c,
-    type: 3}
+  bulletModel: {fileID: 0}
   weaponFiremode: 0
   weaponSlot: 0
   weaponSpecialProperty: 
-  damage: 12
-  damageDropoff: 1
-  firerate: 600
-  magazineSize: 30
+  damage: 0
+  damageDropoff: 0
+  firerate: 0
+  magazineSize: 0
   bulletSpread: 0
-  reloadTime: 2.5
-  xRecoil: 4
-  yRecoil: 2
-  zRecoil: 1
-  adsRecoilMultiplier: 1
-  recoilSnappiness: 5
-  recoilReturnSpeed: 10
+  reloadTime: 0
+  xRecoil: 0
+  yRecoil: 0
+  zRecoil: 0
+  adsRecoilMultiplier: 0
+  recoilSnappiness: 0
+  recoilReturnSpeed: 0

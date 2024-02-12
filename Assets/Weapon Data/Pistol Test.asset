@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94177459e4701f847b7191691b6c5f38, type: 3}
-  m_Name: Rifle Test
+  m_Name: Pistol Test
   m_EditorClassIdentifier: 
-  weaponType: 3
-  weaponModel: {fileID: 1707218878750375350, guid: 517b16f642c03de4485adf7662af4f39,
+  weaponType: 0
+  weaponModel: {fileID: 6647161532335301263, guid: 2965c83dc084d624a9691e394c80cc63,
     type: 3}
   bulletType: 0
-  bulletModel: {fileID: 7406091915709379586, guid: d2f186fd35e40194c946e791823c302c,
+  bulletModel: {fileID: 3889889307713893053, guid: 3a12d5e1b28b19842933d4b230fa0f52,
     type: 3}
-  weaponFiremode: 0
-  weaponSlot: 0
+  weaponFiremode: 1
+  weaponSlot: 1
   weaponSpecialProperty: 
-  damage: 12
+  damage: 10
   damageDropoff: 1
-  firerate: 600
-  magazineSize: 30
-  bulletSpread: 0
-  reloadTime: 2.5
-  xRecoil: 4
-  yRecoil: 2
-  zRecoil: 1
+  firerate: 9999
+  magazineSize: 12
+  bulletSpread: 1
+  reloadTime: 3
+  xRecoil: 2
+  yRecoil: 0.5
+  zRecoil: 0.5
   adsRecoilMultiplier: 1
-  recoilSnappiness: 5
+  recoilSnappiness: 4
   recoilReturnSpeed: 10
