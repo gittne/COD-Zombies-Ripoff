@@ -23,7 +23,7 @@ MonoBehaviour:
   weaponSpecialProperty: 
   damage: 12
   damageDropoff: 1
-  firerate: 600
+  firerate: 500
   magazineSize: 30
   bulletSpread: 0
   reloadTime: 2.5
