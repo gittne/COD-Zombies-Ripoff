@@ -58,6 +58,7 @@ public class Script_Enemy_Spawner : MonoBehaviour
                 if (state != SpawnState.SPAWNING)
                 {
                     StartCoroutine(SpawnWave(waves[nextWave]));// starts the spawning
+                    Debug.Log("Spawning");
                 }
             }
         }
