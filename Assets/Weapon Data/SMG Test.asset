@@ -18,18 +18,18 @@ MonoBehaviour:
   bulletType: 0
   bulletModel: {fileID: 7429163378960221953, guid: bb3164fa8c29a704c865257d3796436a,
     type: 3}
-  weaponFiremode: 0
+  weaponFiremode: 2
   weaponSlot: 0
   weaponSpecialProperty: 
-  damage: 8
+  damage: 5
   damageDropoff: 1
-  firerate: 800
-  magazineSize: 30
+  firerate: 1200
+  magazineSize: 45
   bulletSpread: 1
-  reloadTime: 2
+  reloadTime: 1.5
   xRecoil: 3.5
-  yRecoil: 2
-  zRecoil: 1.5
+  yRecoil: 4
+  zRecoil: 0.5
   adsRecoilMultiplier: 1
-  recoilSnappiness: 6
-  recoilReturnSpeed: 20
+  recoilSnappiness: 7
+  recoilReturnSpeed: 13
