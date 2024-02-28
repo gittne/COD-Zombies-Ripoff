@@ -5,24 +5,28 @@ using UnityEngine;
 public class Script_Enemy_Health : MonoBehaviour
 {
     [SerializeField] int health;
-
-    // Start is called before the first frame update
-    void Start()
+    public int enemyHealth
     {
-        
+        get
+        {
+            return health;
+        }
+        set
+        {
+            health = value;
+        }
+    }
+    [SerializeField] List<Script_Enemy_Hitboxes> hitboxes;
+
+    private void Update()
+    {
+        Debug.Log("The current health is: " + enemyHealth);
+        HealthCheck();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HealthCheck()
     {
-        
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0)
+        if (enemyHealth <= 0)
         {
             Die();
         }

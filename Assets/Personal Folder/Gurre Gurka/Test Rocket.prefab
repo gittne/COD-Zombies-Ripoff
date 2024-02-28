@@ -466,7 +466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3364661743a2a764dacfea648fe1d97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionTimerThreshold: 1
   blastRadius: 5
+  thrustForce: 20
 --- !u!1 &6053073188661756768
 GameObject:
   m_ObjectHideFlags: 0

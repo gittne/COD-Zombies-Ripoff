@@ -5,7 +5,10 @@ using UnityEngine;
 public class Script_Projectile_Rocket : MonoBehaviour
 {
     Rigidbody rocketRigidbody;
+    float time;
+    [SerializeField] float explosionTimerThreshold;
     [SerializeField] float blastRadius;
+    [SerializeField] float thrustForce;
 
     void Start()
     {
@@ -15,7 +18,14 @@ public class Script_Projectile_Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rocketRigidbody.AddForce(transform.forward * 25f);
+        rocketRigidbody.AddForce(transform.forward * thrustForce);
+
+        time += Time.deltaTime;
+
+        if (Timer(time, explosionTimerThreshold))
+        {
+            Explosion();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -39,5 +49,15 @@ public class Script_Projectile_Rocket : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    bool Timer(float timer, float threshold)
+    {
+        if (timer > threshold)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -114,11 +114,11 @@ public class Script_Weapon_Activation : MonoBehaviour
         RaycastHit raycastHit;
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out raycastHit))
         {
-            Script_Enemy_Health enemyHealth = raycastHit.transform.GetComponent<Script_Enemy_Health>();
+            Script_Enemy_Hitboxes enemyHitbox = raycastHit.transform.GetComponent<Script_Enemy_Hitboxes>();
 
-            if (enemyHealth != null)
+            if (enemyHitbox != null)
             {
-                enemyHealth.TakeDamage(damage);
+                enemyHitbox.TakeDamage(damage);
             }
         }
 
@@ -136,7 +136,7 @@ public class Script_Weapon_Activation : MonoBehaviour
         HitscanFire(damage);
         yield return new WaitForSeconds(60f / weaponData.weaponFirerate);
         HitscanFire(damage);
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.25f);
         isShooting = false;
     }
 
