@@ -32,6 +32,6 @@ MonoBehaviour:
   yRecoil: 0.5
   zRecoil: 0.5
   adsRecoilMultiplier: 1
-  movementRecoilMultiplier: 2
+  movementRecoilMultiplier: 1.25
   recoilSnappiness: 4
   recoilReturnSpeed: 10
