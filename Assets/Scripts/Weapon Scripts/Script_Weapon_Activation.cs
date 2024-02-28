@@ -14,8 +14,9 @@ public class Script_Weapon_Activation : MonoBehaviour
     GameObject weaponModel;
     GameObject muzzleFlashSpawner;
     Camera playerCamera;
-    int currentAmmo;
+    AudioSource audioSource;
 
+    int currentAmmo;
     float nextTimeToShoot;
     bool isReloading;
     bool isShooting;
@@ -32,6 +33,8 @@ public class Script_Weapon_Activation : MonoBehaviour
         muzzleFlashSpawner = GameObject.Find(muzzleSpawnerName);
 
         playerCamera = GetComponent<Camera>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -122,8 +125,13 @@ public class Script_Weapon_Activation : MonoBehaviour
             }
         }
 
-        cameraRecoil.Recoil(weaponData.weaponRecoilX, weaponData.weaponRecoilY, weaponData.weaponRecoilZ);
-        weaponRecoil.Recoil(weaponData.weaponRecoilX / 2.5f, weaponData.weaponRecoilY / 2.5f, weaponData.weaponRecoilZ / 2.5f);
+        cameraRecoil.Recoil(weaponData.weaponRecoilX, weaponData.weaponRecoilY, weaponData.weaponRecoilZ, weaponData.weaponMovementRecoilMultiplier);
+        weaponRecoil.Recoil(weaponData.weaponRecoilX / 2.5f, weaponData.weaponRecoilY / 2.5f, weaponData.weaponRecoilZ / 2.5f, weaponData.weaponMovementRecoilMultiplier / 2.5f);
+
+        float randomPitch = Random.Range(0.9f, 1.1f);
+        audioSource.pitch = randomPitch;
+        int randomAudioClip = Random.Range(0, weaponData.firingAudioClips.Length);
+        audioSource.PlayOneShot(weaponData.firingAudioClips[randomAudioClip]);
 
         Debug.Log("You have " + currentAmmo + " bullets");
     }
@@ -146,8 +154,8 @@ public class Script_Weapon_Activation : MonoBehaviour
 
         Instantiate(projectile, muzzleFlashSpawner.transform.position, playerCamera.transform.rotation);
 
-        cameraRecoil.Recoil(weaponData.weaponRecoilX, weaponData.weaponRecoilY, weaponData.weaponRecoilZ);
-        weaponRecoil.Recoil(weaponData.weaponRecoilX / 2.5f, weaponData.weaponRecoilY / 2.5f, weaponData.weaponRecoilZ / 2.5f);
+        cameraRecoil.Recoil(weaponData.weaponRecoilX, weaponData.weaponRecoilY, weaponData.weaponRecoilZ, weaponData.weaponMovementRecoilMultiplier);
+        weaponRecoil.Recoil(weaponData.weaponRecoilX / 2.5f, weaponData.weaponRecoilY / 2.5f, weaponData.weaponRecoilZ / 2.5f, weaponData.weaponMovementRecoilMultiplier / 2.5f);
     }
 
     IEnumerator Reloading(float reloadTime)
@@ -156,11 +164,15 @@ public class Script_Weapon_Activation : MonoBehaviour
 
         isReloading = true;
 
+        weaponHolder.gameObject.SetActive(false);
+
         yield return new WaitForSeconds(reloadTime);
 
         currentAmmo = weaponData.weaponMagazineSize;
 
         isReloading = false;
+
+        weaponHolder.gameObject.SetActive(true);
 
         Debug.Log("Finished reloading");
     }

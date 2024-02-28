@@ -47,6 +47,19 @@ public class SO_Weapon_Data : ScriptableObject
     [Tooltip("Which weapon slot this weapon fits in.")]
     public WeaponSlot weaponSlot;
 
+    [SerializeField] AudioClip[] firingClips;
+    public AudioClip[] firingAudioClips
+    {
+        get
+        {
+            return firingClips;
+        }
+        private set
+        {
+            firingClips = value;
+        }
+    }
+
     public enum SpecialProperty { Piercing, Burning }
     [Tooltip("What type of special property this weapon might have.")]
     public SpecialProperty[] weaponSpecialProperty;
@@ -135,6 +148,8 @@ public class SO_Weapon_Data : ScriptableObject
         }
     }
 
+    [Header("Recoil Variables")]
+
     [Tooltip("How much the weapon rotates around the X-axis when firing.")]
     [SerializeField] float xRecoil;
     public float weaponRecoilX
@@ -178,7 +193,7 @@ public class SO_Weapon_Data : ScriptableObject
     }
 
     [Tooltip("How much the recoil is multiplied when ADS'ing.")]
-    [SerializeField] float adsRecoilMultiplier;
+    [Range(0f, 1f)] [SerializeField] float adsRecoilMultiplier;
     public float weaponAdsRecoilMultiplier
     {
         get
@@ -188,6 +203,20 @@ public class SO_Weapon_Data : ScriptableObject
         private set
         {
             adsRecoilMultiplier = value;
+        }
+    }
+
+    [Tooltip("How much the recoil is multiplied when moving when shooting. (Not recommended to go above 1.5)")]
+    [Range(0f, 1f)] [SerializeField] float movementRecoilMultiplier;
+    public float weaponMovementRecoilMultiplier
+    {
+        get
+        {
+            return movementRecoilMultiplier;
+        }
+        private set
+        {
+            movementRecoilMultiplier = value;
         }
     }
 
@@ -205,7 +234,7 @@ public class SO_Weapon_Data : ScriptableObject
         }
     }
 
-    [Tooltip("How much fast the recoil resets when not firing.")]
+    [Tooltip("How fast the recoil resets when not firing.")]
     [SerializeField] float recoilReturnSpeed;
     public float weaponRecoilReturnSpeed
     {

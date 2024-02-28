@@ -20,6 +20,8 @@ MonoBehaviour:
     type: 3}
   weaponFiremode: 2
   weaponSlot: 0
+  firingClips:
+  - {fileID: 8300000, guid: f20153b6751d3ba4793d2b777d17dfc3, type: 3}
   weaponSpecialProperty: 
   damage: 5
   damageDropoff: 1
@@ -31,5 +33,6 @@ MonoBehaviour:
   yRecoil: 4
   zRecoil: 0.5
   adsRecoilMultiplier: 1
+  movementRecoilMultiplier: 4
   recoilSnappiness: 7
   recoilReturnSpeed: 13
