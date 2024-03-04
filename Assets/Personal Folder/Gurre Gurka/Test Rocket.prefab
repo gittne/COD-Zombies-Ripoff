@@ -468,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionTimerThreshold: 1
   blastRadius: 5
+  damage: 200
   thrustForce: 20
 --- !u!1 &6053073188661756768
 GameObject:

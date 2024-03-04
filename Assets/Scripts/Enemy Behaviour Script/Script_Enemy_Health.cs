@@ -20,7 +20,7 @@ public class Script_Enemy_Health : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("The current health is: " + enemyHealth);
+        //Debug.Log("The current health is: " + enemyHealth);
         HealthCheck();
     }
 

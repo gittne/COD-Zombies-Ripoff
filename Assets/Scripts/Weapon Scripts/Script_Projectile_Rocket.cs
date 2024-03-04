@@ -8,6 +8,7 @@ public class Script_Projectile_Rocket : MonoBehaviour
     float time;
     [SerializeField] float explosionTimerThreshold;
     [SerializeField] float blastRadius;
+    [SerializeField] int damage;
     [SerializeField] float thrustForce;
 
     void Start()
@@ -40,12 +41,19 @@ public class Script_Projectile_Rocket : MonoBehaviour
     {
         //Effect
 
-        //Damage
+        //Collision check
         Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
 
         foreach (Collider collider in colliders)
         {
             Debug.Log(collider);
+
+            Script_Enemy_Hitboxes enemyHitbox = transform.GetComponent<Script_Enemy_Hitboxes>();
+
+            if (enemyHitbox != null)
+            {
+                enemyHitbox.TakeDamage(damage);
+            }
         }
 
         Destroy(gameObject);

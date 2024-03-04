@@ -17,7 +17,7 @@ public class Script_Weapon_Recoil : MonoBehaviour
     {
         targetRotation += new Vector3(-xRecoil + (-Mathf.Abs(playerController.velocity.x) * movementPenalty) 
             + (-Mathf.Abs(playerController.velocity.z) * movementPenalty), 
-            Random.Range(-yRecoil, yRecoil), Random.Range(-zRecoil, zRecoil)) ;
+            Random.Range(-yRecoil, yRecoil), Random.Range(-zRecoil, zRecoil));
     }
 
     public void ResetView(float snapBack, float returnSpeed)

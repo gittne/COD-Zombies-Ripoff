@@ -5,6 +5,17 @@ using UnityEngine;
 public class Script_Weapon_Activation : MonoBehaviour
 {
     [SerializeField] SO_Weapon_Data weaponData;
+    public SO_Weapon_Data currentWeaponData
+    {
+        get
+        {
+            return weaponData;
+        }
+        private set
+        {
+            weaponData = value;
+        }
+    }
     [SerializeField] Transform weaponHolder;
     [SerializeField] string muzzleSpawnerName;
 
@@ -16,10 +27,13 @@ public class Script_Weapon_Activation : MonoBehaviour
     Camera playerCamera;
     AudioSource audioSource;
 
-    int currentAmmo;
+    public int currentAmmo { get; private set; }
+
     float nextTimeToShoot;
+
     bool isReloading;
     bool isShooting;
+    public bool isHitmarkerActive { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -122,6 +136,7 @@ public class Script_Weapon_Activation : MonoBehaviour
             if (enemyHitbox != null)
             {
                 enemyHitbox.TakeDamage(damage);
+                StartCoroutine(Hitmarker(0.05f));
             }
         }
 
@@ -132,8 +147,6 @@ public class Script_Weapon_Activation : MonoBehaviour
         audioSource.pitch = randomPitch;
         int randomAudioClip = Random.Range(0, weaponData.firingAudioClips.Length);
         audioSource.PlayOneShot(weaponData.firingAudioClips[randomAudioClip]);
-
-        Debug.Log("You have " + currentAmmo + " bullets");
     }
 
     IEnumerator BurstFireHitscan(int damage)
@@ -155,7 +168,7 @@ public class Script_Weapon_Activation : MonoBehaviour
         Instantiate(projectile, muzzleFlashSpawner.transform.position, playerCamera.transform.rotation);
 
         cameraRecoil.Recoil(weaponData.weaponRecoilX, weaponData.weaponRecoilY, weaponData.weaponRecoilZ, weaponData.weaponMovementRecoilMultiplier);
-        weaponRecoil.Recoil(weaponData.weaponRecoilX / 2.5f, weaponData.weaponRecoilY / 2.5f, weaponData.weaponRecoilZ / 2.5f, weaponData.weaponMovementRecoilMultiplier / 2.5f);
+        weaponRecoil.Recoil(weaponData.weaponRecoilX / 2f, weaponData.weaponRecoilY / 2f, weaponData.weaponRecoilZ / 2f, weaponData.weaponMovementRecoilMultiplier / 2f);
     }
 
     IEnumerator Reloading(float reloadTime)
@@ -175,5 +188,12 @@ public class Script_Weapon_Activation : MonoBehaviour
         weaponHolder.gameObject.SetActive(true);
 
         Debug.Log("Finished reloading");
+    }
+
+    IEnumerator Hitmarker(float timeToShowHitmarker)
+    {
+        isHitmarkerActive = true;
+        yield return new WaitForSeconds(timeToShowHitmarker);
+        isHitmarkerActive = false;
     }
 }

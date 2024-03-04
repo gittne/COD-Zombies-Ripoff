@@ -47,6 +47,7 @@ public class SO_Weapon_Data : ScriptableObject
     [Tooltip("Which weapon slot this weapon fits in.")]
     public WeaponSlot weaponSlot;
 
+    [Tooltip("The audio clips that play when firing the weapon.")]
     [SerializeField] AudioClip[] firingClips;
     public AudioClip[] firingAudioClips
     {
@@ -245,6 +246,150 @@ public class SO_Weapon_Data : ScriptableObject
         private set
         {
             recoilReturnSpeed = value;
+        }
+    }
+
+    [Header("Swaying Variables")]
+
+    [Tooltip("How much smoothing is applied on the sway when looking around.")]
+    [SerializeField] float weaponSwaySmoothing;
+    public float swaySmoothing
+    {
+        get
+        {
+            return weaponSwaySmoothing;
+        }
+        private set
+        {
+            weaponSwaySmoothing = value;
+        }
+    }
+
+    [Tooltip("How much the step point deviates when moving the mouse.")]
+    [Range(0f, 0.1f)] [SerializeField] float weaponSwayStep;
+    public float swayStep
+    {
+        get
+        {
+            return weaponSwayStep;
+        }
+        private set
+        {
+            weaponSwayStep = value;
+        }
+    }
+
+    [Tooltip("The max distance the weapon can sway when looking around.")]
+    [SerializeField] float weaponSwayMaxStepDistance;
+    public float swayMaxStepDistance
+    {
+        get
+        {
+            return weaponSwayMaxStepDistance;
+        }
+        private set
+        {
+            weaponSwayMaxStepDistance = value;
+        }
+    }
+
+    [Tooltip("How much the step point deviates when moving the mouse.")]
+    [SerializeField] float weaponRotationStep;
+    public float rotationStep
+    {
+        get
+        {
+            return weaponRotationStep;
+        }
+        private set
+        {
+            weaponRotationStep = value;
+        }
+    }
+
+    [Tooltip("The max rotation the weapon can sway when looking around.")]
+    [SerializeField] float weaponSwayMaxStepRotation;
+    public float swayMaxStepRotation
+    {
+        get
+        {
+            return weaponSwayMaxStepRotation;
+        }
+        private set
+        {
+            weaponSwayMaxStepRotation = value;
+        }
+    }
+
+    [Header("Bob Variables")]
+
+    [Tooltip("The max limit the weapon can bob when walking around.")]
+    [SerializeField] float weaponBobTravelLimit;
+    public float bobTravelLimit
+    {
+        get
+        {
+            return weaponBobTravelLimit;
+        }
+        private set
+        {
+            weaponBobTravelLimit = value;
+        }
+    }
+
+    [Tooltip("The limits the weapon can bob when walking around over time.")]
+    [SerializeField] float weaponBobLimit;
+    public float bobLimit
+    {
+        get
+        {
+            return weaponBobLimit;
+        }
+        private set
+        {
+            weaponBobLimit = value;
+        }
+    }
+
+    [Tooltip("The limits the weapon can bob when walking around over time.")]
+    [SerializeField] Vector3 weaponBobMultiplier;
+    public Vector3 bobMultiplier
+    {
+        get
+        {
+            return weaponBobMultiplier;
+        }
+        private set
+        {
+            weaponBobMultiplier = value;
+        }
+    }
+
+    [Tooltip("The limits the weapon can bob when walking around over time.")]
+    [SerializeField] float weaponbobSmoothing;
+    public float bobSmoothing
+    {
+        get
+        {
+            return weaponbobSmoothing;
+        }
+        private set
+        {
+            weaponbobSmoothing = value;
+        }
+    }
+
+    [Tooltip("The limits the weapon can bob when walking around over time.")]
+    [SerializeField] float weaponbobSmoothingRotation;
+    public float bobSmoothingRotation
+    {
+        get
+        {
+            return weaponbobSmoothingRotation;
+        }
+        private set
+        {
+            weaponbobSmoothingRotation = value;
         }
     }
 }
