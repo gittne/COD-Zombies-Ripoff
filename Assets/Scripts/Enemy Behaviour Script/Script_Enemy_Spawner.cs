@@ -84,19 +84,23 @@ public class Script_Enemy_Spawner : MonoBehaviour
     }
     
 
-    IEnumerator SpawnWave (Wave _wave)
+    IEnumerator SpawnWave (Wave _wave) // the currenthorde amount needs to be set to the max amount in the inspector
     {
         state = SpawnState.SPAWNING;
 
-        for (int i = 0; i < _wave.currentHordeAmount; i++)   // Spawning
+        for (int i = 0; i < _wave.currentHordeAmount; i++)   // Spawning loop 
         {
-            Instantiate(_wave.Horde[i], transform.position, transform.rotation);
-            yield return new WaitForSeconds(1f/_wave.spawnRate);
+            Instantiate(_wave.Horde[i], transform.position, transform.rotation); 
+            yield return new WaitForSeconds(1f/_wave.spawnRate); // The rate is how many will spawn at the same time
         }                                  
 
         state = SpawnState.WAITING;
 
         yield break;
     }
+    // to do 
+    // spawn locations 
+    // mutiple spawing on those locations
+    // clean the code and make it look nice
 
 }
