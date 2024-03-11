@@ -487,6 +487,7 @@ MonoBehaviour:
   playerCamera: {fileID: 2757277019204203289}
   maxClampValue: 89
   walkingSpeed: 5
+  runningSpeed: 8
 --- !u!143 &4570753137419699989
 CharacterController:
   m_ObjectHideFlags: 0
@@ -895,7 +896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4242919298273194942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -0.07999992, z: 0.21}
+  m_LocalPosition: {x: 0.07, y: -0.07999992, z: 0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1049,7 +1050,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 75
+  field of view: 69
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1131,11 +1132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86cb4efae83a3dc4ba0b158ea5551be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: b32d6cc0df3e7304fa3e00fac8c351f8, type: 2}
+  weaponData: {fileID: 11400000, guid: 31e03867b9219e54dbf6abe46cb779b1, type: 2}
   weaponHolder: {fileID: 8415359785411142315}
+  bobbingParentObject: {fileID: 2943306805497387238}
   muzzleSpawnerName: Muzzle Flash Spawner
   cameraRecoil: {fileID: 2360411186690269824}
   weaponRecoil: {fileID: 8719441024444077835}
+  sprintRotation: {x: -0.46679023, y: 0.46679023, z: -0.3208161, w: -0.67918384}
 --- !u!82 &968255019479148722
 AudioSource:
   m_ObjectHideFlags: 0
