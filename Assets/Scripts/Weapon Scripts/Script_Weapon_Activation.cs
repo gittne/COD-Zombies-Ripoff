@@ -17,10 +17,14 @@ public class Script_Weapon_Activation : MonoBehaviour
         }
     }
     [SerializeField] Transform weaponHolder;
+    [SerializeField] Transform bobbingParentObject;
     [SerializeField] string muzzleSpawnerName;
 
     [SerializeField] Script_Weapon_Recoil cameraRecoil;
     [SerializeField] Script_Weapon_Recoil weaponRecoil;
+
+    Quaternion idleRotation;
+    [SerializeField] Quaternion sprintRotation;
 
     GameObject weaponModel;
     GameObject muzzleFlashSpawner;
@@ -59,61 +63,64 @@ public class Script_Weapon_Activation : MonoBehaviour
             StartCoroutine(Reloading(weaponData.weaponReloadTime));
         }
 
-        switch (weaponData.weaponFiremode)
+        if (Script_Player_Movement_Singleplayer.isSprinting == false)
         {
-            case SO_Weapon_Data.Firemode.Automatic:
-                if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot && currentAmmo > 0 && !isReloading)
-                {
-                    if (weaponData.bulletType == SO_Weapon_Data.BulletType.Hitscan)
+            switch (weaponData.weaponFiremode)
+            {
+                case SO_Weapon_Data.Firemode.Automatic:
+                    if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot && currentAmmo > 0 && !isReloading)
                     {
-                        nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
-                        HitscanFire(weaponData.weaponDamage);
-                    }
+                        if (weaponData.bulletType == SO_Weapon_Data.BulletType.Hitscan)
+                        {
+                            nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
+                            HitscanFire(weaponData.weaponDamage);
+                        }
 
-                    if (weaponData.bulletType == SO_Weapon_Data.BulletType.Projectile)
+                        if (weaponData.bulletType == SO_Weapon_Data.BulletType.Projectile)
+                        {
+                            nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
+                            ProjectileFire(weaponData.bulletModelObject);
+                        }
+                    }
+                    break;
+
+                case SO_Weapon_Data.Firemode.SemiAuto:
+                    if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToShoot && currentAmmo > 0 && !isReloading)
                     {
-                        nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
-                        ProjectileFire(weaponData.bulletModelObject);
-                    }
-                }
-                break;
+                        if (weaponData.bulletType == SO_Weapon_Data.BulletType.Hitscan)
+                        {
+                            nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
+                            HitscanFire(weaponData.weaponDamage);
+                        }
 
-            case SO_Weapon_Data.Firemode.SemiAuto:
-                if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToShoot && currentAmmo > 0 && !isReloading)
-                {
-                    if (weaponData.bulletType == SO_Weapon_Data.BulletType.Hitscan)
+                        if (weaponData.bulletType == SO_Weapon_Data.BulletType.Projectile)
+                        {
+                            nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
+                            ProjectileFire(weaponData.bulletModelObject);
+                        }
+                    }
+                    break;
+
+                case SO_Weapon_Data.Firemode.Burst:
+                    if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToShoot && currentAmmo > 0 && !isReloading && !isShooting)
                     {
-                        nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
-                        HitscanFire(weaponData.weaponDamage);
-                    }
+                        if (weaponData.bulletType == SO_Weapon_Data.BulletType.Hitscan)
+                        {
+                            nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
+                            StartCoroutine(BurstFireHitscan(weaponData.weaponDamage));
+                        }
 
-                    if (weaponData.bulletType == SO_Weapon_Data.BulletType.Projectile)
-                    {
-                        nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
-                        ProjectileFire(weaponData.bulletModelObject);
+                        if (weaponData.bulletType == SO_Weapon_Data.BulletType.Projectile)
+                        {
+                            nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
+                            ProjectileFire(weaponData.bulletModelObject);
+                        }
                     }
-                }
-                break;
+                    break;
 
-            case SO_Weapon_Data.Firemode.Burst:
-                if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToShoot && currentAmmo > 0 && !isReloading && !isShooting)
-                {
-                    if (weaponData.bulletType == SO_Weapon_Data.BulletType.Hitscan)
-                    {
-                        nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
-                        StartCoroutine(BurstFireHitscan(weaponData.weaponDamage));
-                    }
-
-                    if (weaponData.bulletType == SO_Weapon_Data.BulletType.Projectile)
-                    {
-                        nextTimeToShoot = (60f / weaponData.weaponFirerate) + Time.time;
-                        ProjectileFire(weaponData.bulletModelObject);
-                    }
-                }
-                break;
-
-            default:
-                break;
+                default:
+                    break;
+            }
         }
 
         cameraRecoil.ResetView(weaponData.weaponSnapBack, weaponData.weaponRecoilReturnSpeed);

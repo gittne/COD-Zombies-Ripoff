@@ -839,6 +839,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287fbb29f28f2ae468f43cbe61a56403, type: 3}
+--- !u!4 &1340111154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2943306805497387238, guid: 870f20c784ad4fa40ba5c359406a206d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7915334009381537624}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1694330953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,8 +1386,33 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponData
       value: 
-      objectReference: {fileID: 11400000, guid: b32d6cc0df3e7304fa3e00fac8c351f8,
+      objectReference: {fileID: 11400000, guid: 31e03867b9219e54dbf6abe46cb779b1,
         type: 2}
+    - target: {fileID: 2240727311066406910, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: sprintRotation.w
+      value: -0.67918384
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240727311066406910, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: sprintRotation.x
+      value: -0.46679023
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240727311066406910, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: sprintRotation.y
+      value: 0.46679023
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240727311066406910, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: sprintRotation.z
+      value: -0.3208161
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240727311066406910, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: bobbingParentObject
+      value: 
+      objectReference: {fileID: 1340111154}
     - target: {fileID: 2328023351645474732, guid: 870f20c784ad4fa40ba5c359406a206d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1437,10 +1468,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2757277019204203289, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: field of view
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943306805497387238, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.19
+      objectReference: {fileID: 0}
     - target: {fileID: 3764858200896695395, guid: 870f20c784ad4fa40ba5c359406a206d,
         type: 3}
       propertyPath: m_Name
       value: Player V.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: runningSpeed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

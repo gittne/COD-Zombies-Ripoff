@@ -12,8 +12,10 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
 
     [Header("Movement Variables")]
     [SerializeField] float walkingSpeed;
+    [SerializeField] float runningSpeed;
     CharacterController controller;
-    
+
+    public static bool isSprinting => Input.GetKey(KeyCode.LeftShift);
 
     public void Look()
     {
@@ -32,7 +34,7 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
 
         Vector3 movement = transform.right * sidewaysMovement + transform.forward * forwardMovement;
 
-        controller.Move(movement.normalized * walkingSpeed * Time.deltaTime);
+        controller.Move(movement.normalized * (isSprinting ? runningSpeed : walkingSpeed) * Time.deltaTime);
     }
 
     // Start is called before the first frame update

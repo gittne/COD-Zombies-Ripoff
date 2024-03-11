@@ -37,7 +37,7 @@ MonoBehaviour:
   recoilSnappiness: 5
   recoilReturnSpeed: 10
   weaponSwaySmoothing: 12
-  weaponSwayStep: 0.0145
+  weaponSwayStep: 0.013
   weaponSwayMaxStepDistance: 0.075
   weaponRotationStep: 6
   weaponSwayMaxStepRotation: 7
