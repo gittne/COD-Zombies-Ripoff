@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Script_Enemy_Hitboxes : MonoBehaviour
 {
-    public enum BodyPart { Head, Body }
+    public enum BodyPart { Head, Body, Limb }
     public BodyPart bodyPart;
-    public int health { get; private set; }
+    [SerializeField] int bodypartHealth;
     Script_Enemy_Health enemyHealth;
 
     private void Start()
@@ -21,12 +21,23 @@ public class Script_Enemy_Hitboxes : MonoBehaviour
         {
             case BodyPart.Head:
                 enemyHealth.enemyHealth -= damage * 2;
+                bodypartHealth -= damage * 2;
                 break;
             case BodyPart.Body:
                 enemyHealth.enemyHealth -= damage;
+                bodypartHealth -= damage;
+                break;
+            case BodyPart.Limb:
+                enemyHealth.enemyHealth -= Mathf.RoundToInt(damage * 0.65f);
+                bodypartHealth -= damage;
                 break;
             default:
                 break;
+        }
+
+        if (bodypartHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -9,13 +9,31 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
     [SerializeField] Camera playerCamera;
     [SerializeField] float maxClampValue;
     float xRotation;
+    float fovStandardValue;
+
+    [Header("FOV Variables")]
+    [SerializeField] float fovValueChangeAmount;
+    [SerializeField] float fovValueEasingTime;
+    [SerializeField] AnimationCurve fovEasingCurve;
+    float fovIncreaseElapsedTime;
+    float fovDecreaseElapsedTime;
 
     [Header("Movement Variables")]
     [SerializeField] float walkingSpeed;
     [SerializeField] float runningSpeed;
     CharacterController controller;
 
-    public static bool isSprinting => Input.GetKey(KeyCode.LeftShift);
+    [Header("Weapon Transform Variables")]
+    [SerializeField] Transform weaponHolderTransform;
+    [SerializeField] float weaponRotationSwitchEasingTime;
+    [SerializeField] float weaponPositionSwitchEasingTime;
+    [SerializeField] Quaternion weaponSprintRotation;
+    [SerializeField] Vector3 weaponSprintPosition;
+    [SerializeField] AnimationCurve weaponPositionEasingCurve;
+    float weaponLoweringElapsedTime;
+    float weaponRaisingElapsedTime;
+
+    public static bool isSprinting => Input.GetKey(KeyCode.LeftShift) && Input.GetAxisRaw("Vertical") > 0;
 
     public void Look()
     {
@@ -37,11 +55,47 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
         controller.Move(movement.normalized * (isSprinting ? runningSpeed : walkingSpeed) * Time.deltaTime);
     }
 
+    void CameraFovChange(Camera camera, bool condition, float fovStandardValue, float fovValueChange)
+    {
+        if (condition)
+        {
+            fovIncreaseElapsedTime += Time.deltaTime;
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, fovStandardValue + fovValueChange, fovEasingCurve.Evaluate(fovIncreaseElapsedTime / fovValueEasingTime));
+            fovDecreaseElapsedTime = 0;
+        }
+        else
+        {
+            fovDecreaseElapsedTime += Time.deltaTime;
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, fovStandardValue, fovEasingCurve.Evaluate(fovDecreaseElapsedTime / fovValueEasingTime));
+            fovIncreaseElapsedTime = 0;
+        }
+    }
+
+    void WeaponHolderSprintTransform(Transform transform, Quaternion newRotation, Vector3 newPosition, bool condition)
+    {
+        if (condition)
+        {
+            weaponLoweringElapsedTime += Time.deltaTime;
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, newRotation, weaponPositionEasingCurve.Evaluate(weaponLoweringElapsedTime / weaponRotationSwitchEasingTime));
+            transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, weaponPositionEasingCurve.Evaluate(weaponLoweringElapsedTime / weaponPositionSwitchEasingTime));
+            weaponRaisingElapsedTime = 0;
+        }
+        else
+        {
+            weaponRaisingElapsedTime += Time.deltaTime;
+            transform.localRotation = Quaternion.Lerp(newRotation, new Quaternion(0, 0, 0, 1), weaponPositionEasingCurve.Evaluate(weaponRaisingElapsedTime / weaponRotationSwitchEasingTime));
+            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, 0, 0), weaponPositionEasingCurve.Evaluate(weaponRaisingElapsedTime / weaponPositionSwitchEasingTime));
+            weaponLoweringElapsedTime = 0;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        fovStandardValue = playerCamera.fieldOfView;
 
         controller = GetComponent<CharacterController>();
     }
@@ -51,5 +105,7 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
     {
         Look();
         Movement();
+        CameraFovChange(playerCamera, isSprinting, fovStandardValue, fovValueChangeAmount);
+        WeaponHolderSprintTransform(weaponHolderTransform, weaponSprintRotation, weaponSprintPosition, isSprinting);
     }
 }

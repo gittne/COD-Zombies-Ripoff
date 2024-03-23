@@ -41,8 +41,8 @@ MonoBehaviour:
   weaponSwayMaxStepDistance: 0.075
   weaponRotationStep: 6
   weaponSwayMaxStepRotation: 7
-  weaponBobTravelLimit: 0.01
-  weaponBobLimit: 0.01
-  weaponBobMultiplier: {x: 1, y: 1, z: 1}
-  weaponbobSmoothing: 1
-  weaponbobSmoothingRotation: 2
+  weaponBobTravelLimit: 0.015
+  weaponBobLimit: 0.02
+  weaponBobMultiplier: {x: 1.5, y: 1.5, z: 1.5}
+  weaponbobSmoothing: 1.5
+  weaponbobSmoothingRotation: 3

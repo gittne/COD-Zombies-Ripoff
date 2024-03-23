@@ -37,12 +37,12 @@ MonoBehaviour:
   recoilSnappiness: 7
   recoilReturnSpeed: 13
   weaponSwaySmoothing: 12
-  weaponSwayStep: 0.008
+  weaponSwayStep: 0.009
   weaponSwayMaxStepDistance: 0.045
   weaponRotationStep: 3
   weaponSwayMaxStepRotation: 4
-  weaponBobTravelLimit: 0
-  weaponBobLimit: 0
-  weaponBobMultiplier: {x: 0, y: 0, z: 0}
-  weaponbobSmoothing: 0
-  weaponbobSmoothingRotation: 0
+  weaponBobTravelLimit: 0.01
+  weaponBobLimit: 0.01
+  weaponBobMultiplier: {x: 1.2, y: 1.2, z: 1.2}
+  weaponbobSmoothing: 1
+  weaponbobSmoothingRotation: 2

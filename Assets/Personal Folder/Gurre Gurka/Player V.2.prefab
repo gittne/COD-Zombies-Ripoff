@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 2328023351645474732}
   - component: {fileID: 5404071450342642989}
   - component: {fileID: 4570753137419699989}
+  - component: {fileID: 268363752930334752}
   m_Layer: 0
   m_Name: Player V.2
   m_TagString: Untagged
@@ -487,7 +488,7 @@ MonoBehaviour:
   playerCamera: {fileID: 2757277019204203289}
   maxClampValue: 89
   walkingSpeed: 5
-  runningSpeed: 8
+  runningSpeed: 7.5
 --- !u!143 &4570753137419699989
 CharacterController:
   m_ObjectHideFlags: 0
@@ -514,6 +515,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &268363752930334752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764858200896695395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99cf57ae579ee7c4696b15b73d0c2572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryWeapon: {fileID: 11400000, guid: b32d6cc0df3e7304fa3e00fac8c351f8, type: 2}
+  secondaryWeapon: {fileID: 11400000, guid: 31e03867b9219e54dbf6abe46cb779b1, type: 2}
 --- !u!1 &4121366541885091008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,7 +1147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86cb4efae83a3dc4ba0b158ea5551be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 31e03867b9219e54dbf6abe46cb779b1, type: 2}
+  weaponData: {fileID: 0}
+  weaponInventory: {fileID: 268363752930334752}
   weaponHolder: {fileID: 8415359785411142315}
   bobbingParentObject: {fileID: 2943306805497387238}
   muzzleSpawnerName: Muzzle Flash Spawner

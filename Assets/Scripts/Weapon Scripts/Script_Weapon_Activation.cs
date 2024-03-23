@@ -16,15 +16,13 @@ public class Script_Weapon_Activation : MonoBehaviour
             weaponData = value;
         }
     }
+
     [SerializeField] Transform weaponHolder;
     [SerializeField] Transform bobbingParentObject;
     [SerializeField] string muzzleSpawnerName;
 
     [SerializeField] Script_Weapon_Recoil cameraRecoil;
     [SerializeField] Script_Weapon_Recoil weaponRecoil;
-
-    Quaternion idleRotation;
-    [SerializeField] Quaternion sprintRotation;
 
     GameObject weaponModel;
     GameObject muzzleFlashSpawner;
