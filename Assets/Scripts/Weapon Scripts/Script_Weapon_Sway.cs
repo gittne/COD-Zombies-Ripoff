@@ -44,7 +44,7 @@ public class Script_Weapon_Sway : MonoBehaviour
         SwayRotationCalculation(currentWeapon.currentWeaponData.rotationStep, currentWeapon.currentWeaponData.swayMaxStepRotation);
         SwayApplication();
         BobOffsetApplication(controller);
-        BobRotationApplication(currentWeapon.currentWeaponData.bobMultiplier, speedCurve);
+        BobRotationApplication(controller, currentWeapon.currentWeaponData.bobMultiplier, speedCurve);
         BobApplication(controller);
     }
 
@@ -93,10 +93,10 @@ public class Script_Weapon_Sway : MonoBehaviour
         bobPosition.z = - (controller.velocity.y * travelLimit.z);
     }
 
-    void BobRotationApplication(Vector3 multiplier, float curveSpeed)
+    void BobRotationApplication(CharacterController controller, Vector3 multiplier, float curveSpeed)
     {
         bobRotation.x = (horizontalVerticalInput != Vector2.zero ?
-            multiplier.x * (Mathf.Sin(2 * curveSpeed)) : multiplier.x * (Mathf.Sin(2 * curveSpeed)) / 2);
+            multiplier.x * (Mathf.Sin(2 * curveSpeed)) : multiplier.x * (Mathf.Sin(2 * curveSpeed)) / 3);
 
         bobRotation.y = (horizontalVerticalInput != Vector2.zero ? multiplier.y * cosCurve : 0);
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4737394720443254957}
   - component: {fileID: 2360411186690269824}
   m_Layer: 0
-  m_Name: Camera Recoil
+  m_Name: Camera Recoil Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8415359785411142315}
-  - component: {fileID: 8719441024444077835}
   m_Layer: 0
   m_Name: Weapon Transform
   m_TagString: Untagged
@@ -106,21 +105,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 21038666736110618}
+  m_Father: {fileID: 1143529860894358942}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8719441024444077835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557373601676671296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b2ed0003757414f900d279b70c85b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2928222578612577030
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +272,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8415359785411142315}
+  - {fileID: 1143529860894358942}
   m_Father: {fileID: 2943306805497387238}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1050,6 +1037,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5822686209858202571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1143529860894358942}
+  - component: {fileID: 5310350280688882597}
+  m_Layer: 0
+  m_Name: Weapon Recoil Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1143529860894358942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822686209858202571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8415359785411142315}
+  m_Father: {fileID: 21038666736110618}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5310350280688882597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822686209858202571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b2ed0003757414f900d279b70c85b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7448030912372548886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1239,7 @@ MonoBehaviour:
   bobbingParentObject: {fileID: 2943306805497387238}
   muzzleSpawnerName: Muzzle Flash Spawner
   cameraRecoil: {fileID: 2360411186690269824}
-  weaponRecoil: {fileID: 8719441024444077835}
+  weaponRecoil: {fileID: 5310350280688882597}
 --- !u!82 &968255019479148722
 AudioSource:
   m_ObjectHideFlags: 0
