@@ -221,12 +221,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0104de989b980864589a23bdf3ce8036, type: 3}
---- !u!4 &224222663 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8415359785411142315, guid: 870f20c784ad4fa40ba5c359406a206d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7915334009381537624}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &326221592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2065,233 +2059,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
         type: 3}
-      propertyPath: fovValueEasingTime
-      value: 6.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovValueChangeAmount
-      value: 6.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovValueEasingAmount
-      value: 6.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponHolderTransform
-      value: 
-      objectReference: {fileID: 224222663}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponSprintPosition.x
-      value: -0.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponSprintPosition.y
-      value: -0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponSprintRotation.w
-      value: -0.8923991
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponSprintRotation.x
-      value: -0.23911761
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponSprintRotation.y
-      value: 0.36964387
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponSprintRotation.z
-      value: -0.099045776
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
       propertyPath: weaponPositionSwitchEasingTime
-      value: 7.5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
         type: 3}
       propertyPath: weaponRotationSwitchEasingTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[2].time
-      value: 0.12983876
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[3].time
-      value: 0.35318992
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[4].time
-      value: 0.9436963
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[5].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[2].value
-      value: 0.00039274246
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[3].value
-      value: 0.018468454
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[4].value
-      value: 0.2541327
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[5].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[0].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[2].inSlope
-      value: 0.18837267
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[3].inSlope
-      value: 0.061943628
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[4].inSlope
-      value: 1.3231335
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[0].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[1].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[2].outSlope
-      value: 0.18837267
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[3].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[3].outSlope
-      value: 0.061943628
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[4].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[4].outSlope
-      value: 1.3231335
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[1].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[3].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[4].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: fovEasingCurve.m_Curve.Array.data[1].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[1].value
-      value: 1
+      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
         type: 3}
@@ -2300,8 +2074,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
         type: 3}
+      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
       propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[0].outSlope
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[1].tangentMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -84,7 +84,7 @@ public class Script_Weapon_Sway : MonoBehaviour
     {
         float walkingInput = Input.GetAxisRaw("Horizontal");
 
-        speedCurve += Time.deltaTime * (controller.isGrounded ? controller.velocity.magnitude : 1f) + 0.01f;
+        speedCurve += Time.deltaTime * (controller.velocity.magnitude / 2.25f) * (controller.isGrounded ? controller.velocity.magnitude : 1f) + 0.01f;
 
         bobPosition.x = (cosCurve * bobLimit.x * (controller.isGrounded ? 1 : 0)) - (walkingInput * travelLimit.x);
 
@@ -96,16 +96,16 @@ public class Script_Weapon_Sway : MonoBehaviour
     void BobRotationApplication(CharacterController controller, Vector3 multiplier, float curveSpeed)
     {
         bobRotation.x = (horizontalVerticalInput != Vector2.zero ?
-            multiplier.x * (Mathf.Sin(2 * curveSpeed)) : multiplier.x * (Mathf.Sin(2 * curveSpeed)) / 3);
+            multiplier.x * (Mathf.Sin(2 * curveSpeed)) * (controller.velocity.magnitude / 3) : multiplier.x * (Mathf.Sin(2 * curveSpeed)) * (controller.velocity.magnitude / 3) / 3);
 
-        bobRotation.y = (horizontalVerticalInput != Vector2.zero ? multiplier.y * cosCurve : 0);
+        bobRotation.y = (horizontalVerticalInput != Vector2.zero ? multiplier.y * cosCurve * (controller.velocity.magnitude / 3) : 0);
 
-        bobRotation.z = (horizontalVerticalInput != Vector2.zero ? multiplier.z * cosCurve * horizontalVerticalInput.x : 0);
+        bobRotation.z = (horizontalVerticalInput != Vector2.zero ? multiplier.z * cosCurve * horizontalVerticalInput.x * (controller.velocity.magnitude / 3) : 0);
     }
 
     void BobApplication(CharacterController controller)
     {
-        transform.localPosition = Vector3.Lerp(transform.localPosition, bobPosition, (controller.velocity.magnitude > 0.1f ? controller.velocity.magnitude * Time.deltaTime : currentWeapon.currentWeaponData.bobSmoothing * Time.deltaTime));
+        transform.localPosition = Vector3.Lerp(transform.localPosition, bobPosition, (controller.velocity.magnitude > 0.1f ? controller.velocity.magnitude * 2 * Time.deltaTime : currentWeapon.currentWeaponData.bobSmoothing * Time.deltaTime));
 
         transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(bobRotation), (controller.velocity.magnitude > 0.1 ? controller.velocity.magnitude * Time.deltaTime : currentWeapon.currentWeaponData.bobSmoothingRotation * Time.deltaTime));
     }

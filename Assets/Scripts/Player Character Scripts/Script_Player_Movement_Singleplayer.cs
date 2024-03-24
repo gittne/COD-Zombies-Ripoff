@@ -76,7 +76,7 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
         if (condition)
         {
             weaponLoweringElapsedTime += Time.deltaTime;
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, newRotation, weaponPositionEasingCurve.Evaluate(weaponLoweringElapsedTime / weaponRotationSwitchEasingTime));
+            transform.localRotation = Quaternion.Slerp(new Quaternion(0, 0, 0, 1), newRotation, weaponPositionEasingCurve.Evaluate(weaponLoweringElapsedTime / weaponRotationSwitchEasingTime));
             transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, weaponPositionEasingCurve.Evaluate(weaponLoweringElapsedTime / weaponPositionSwitchEasingTime));
             weaponRaisingElapsedTime = 0;
         }
