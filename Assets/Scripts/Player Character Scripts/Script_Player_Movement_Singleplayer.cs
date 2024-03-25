@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovement
 {
+    Script_Player_Stats playerStatsScript;
+
     [Header("Camera Variables")]
     [SerializeField] float sensitivity;
     [SerializeField] Camera playerCamera;
@@ -52,16 +54,22 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
 
         Vector3 movement = transform.right * sidewaysMovement + transform.forward * forwardMovement;
 
-        controller.Move(movement.normalized * (isSprinting ? runningSpeed : walkingSpeed) * Time.deltaTime);
+        controller.Move(movement.normalized * (isSprinting && playerStatsScript.isStaminaActivatable ? runningSpeed : walkingSpeed) * Time.deltaTime);
     }
 
-    void CameraFovChange(Camera camera, bool condition, float fovStandardValue, float fovValueChange)
+    void CameraFovChange(Camera camera, bool isSprinting, bool isStaminaActivatable, float fovStandardValue, float fovValueChange)
     {
-        if (condition)
+        if (isSprinting && isStaminaActivatable)
         {
             fovIncreaseElapsedTime += Time.deltaTime;
             camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, fovStandardValue + fovValueChange, fovEasingCurve.Evaluate(fovIncreaseElapsedTime / fovValueEasingTime));
             fovDecreaseElapsedTime = 0;
+        }
+        else if (!isStaminaActivatable)
+        {
+            fovDecreaseElapsedTime += Time.deltaTime;
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, fovStandardValue, fovEasingCurve.Evaluate(fovDecreaseElapsedTime / fovValueEasingTime));
+            fovIncreaseElapsedTime = 0;
         }
         else
         {
@@ -71,14 +79,21 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
         }
     }
 
-    void WeaponHolderSprintTransform(Transform transform, Quaternion newRotation, Vector3 newPosition, bool condition)
+    void WeaponHolderSprintTransform(Transform transform, bool isSprinting, bool isStaminaActivatable, Quaternion newRotation, Vector3 newPosition)
     {
-        if (condition)
+        if (isSprinting && isStaminaActivatable)
         {
             weaponLoweringElapsedTime += Time.deltaTime;
             transform.localRotation = Quaternion.Slerp(new Quaternion(0, 0, 0, 1), newRotation, weaponPositionEasingCurve.Evaluate(weaponLoweringElapsedTime / weaponRotationSwitchEasingTime));
             transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, weaponPositionEasingCurve.Evaluate(weaponLoweringElapsedTime / weaponPositionSwitchEasingTime));
             weaponRaisingElapsedTime = 0;
+        }
+        else if (!isStaminaActivatable)
+        {
+            weaponRaisingElapsedTime += Time.deltaTime;
+            transform.localRotation = Quaternion.Lerp(newRotation, new Quaternion(0, 0, 0, 1), weaponPositionEasingCurve.Evaluate(weaponRaisingElapsedTime / weaponRotationSwitchEasingTime));
+            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, 0, 0), weaponPositionEasingCurve.Evaluate(weaponRaisingElapsedTime / weaponPositionSwitchEasingTime));
+            weaponLoweringElapsedTime = 0;
         }
         else
         {
@@ -98,6 +113,7 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
         fovStandardValue = playerCamera.fieldOfView;
 
         controller = GetComponent<CharacterController>();
+        playerStatsScript = GetComponent<Script_Player_Stats>();
     }
 
     // Update is called once per frame
@@ -105,7 +121,7 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
     {
         Look();
         Movement();
-        CameraFovChange(playerCamera, isSprinting, fovStandardValue, fovValueChangeAmount);
-        WeaponHolderSprintTransform(weaponHolderTransform, weaponSprintRotation, weaponSprintPosition, isSprinting);
+        CameraFovChange(playerCamera, isSprinting, playerStatsScript.isStaminaActivatable, fovStandardValue, fovValueChangeAmount);
+        WeaponHolderSprintTransform(weaponHolderTransform, isSprinting, playerStatsScript.isStaminaActivatable, weaponSprintRotation, weaponSprintPosition);
     }
 }

@@ -1991,12 +1991,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2240727311066406910, guid: 870f20c784ad4fa40ba5c359406a206d,
+    - target: {fileID: 1476175353597745566, guid: 870f20c784ad4fa40ba5c359406a206d,
         type: 3}
-      propertyPath: weaponData
-      value: 
-      objectReference: {fileID: 11400000, guid: b32d6cc0df3e7304fa3e00fac8c351f8,
-        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476175353597745566, guid: 870f20c784ad4fa40ba5c359406a206d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2328023351645474732, guid: 870f20c784ad4fa40ba5c359406a206d,
         type: 3}
       propertyPath: m_RootOrder
@@ -2056,46 +2060,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player V.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionSwitchEasingTime
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponRotationSwitchEasingTime
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[0].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[0].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404071450342642989, guid: 870f20c784ad4fa40ba5c359406a206d,
-        type: 3}
-      propertyPath: weaponPositionEasingCurve.m_Curve.Array.data[1].tangentMode
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

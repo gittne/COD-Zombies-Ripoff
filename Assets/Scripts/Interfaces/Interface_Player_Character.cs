@@ -7,3 +7,9 @@ public interface CharacterMovement
     void Movement();
     void Look();
 }
+
+public interface CharacterStats
+{
+    void HealthCheck();
+    void StaminaCheck();
+}
