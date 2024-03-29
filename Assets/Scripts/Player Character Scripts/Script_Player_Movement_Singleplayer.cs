@@ -20,10 +20,28 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
     float fovIncreaseElapsedTime;
     float fovDecreaseElapsedTime;
 
+    //TODO: Fix a better movement system which implements Vector2 inputs for better gravity feel
     [Header("Movement Variables")]
     [SerializeField] float walkingSpeed;
     [SerializeField] float runningSpeed;
     CharacterController controller;
+    Vector3 movementDirection;
+    float verticalMovement;
+
+    [Header("Jumping/Gravity Variables")]
+    [SerializeField] float jumpingForce;
+    [SerializeField] float gravityForce;
+    [SerializeField] float airResistance;
+    float velocity;
+    float timeInAir;
+    [SerializeField] AnimationCurve gravityCurve;
+
+    [Header("Crouch Variables")]
+    [SerializeField] float crouchHeight;
+    float standingHeight;
+    [SerializeField] float timeToCrouch;
+    [SerializeField] Vector3 crouchingCenter;
+    [SerializeField] Vector3 standingCenter;
 
     [Header("Weapon Transform Variables")]
     [SerializeField] Transform weaponHolderTransform;
@@ -52,9 +70,30 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
         float sidewaysMovement = Input.GetAxisRaw("Horizontal");
         float forwardMovement = Input.GetAxisRaw("Vertical");
 
-        Vector3 movement = transform.right * sidewaysMovement + transform.forward * forwardMovement;
+        if (!controller.isGrounded)
+        {
+            verticalMovement = -gravityForce * Time.deltaTime;
+            Debug.Log("I'm floating");
+        }
 
-        controller.Move(movement.normalized * (isSprinting && playerStatsScript.isStaminaActivatable ? runningSpeed : walkingSpeed) * Time.deltaTime);
+        movementDirection = transform.right * sidewaysMovement + transform.forward * forwardMovement;
+
+        controller.Move(movementDirection.normalized * (isSprinting && playerStatsScript.isStaminaActivatable ? runningSpeed : walkingSpeed) * Time.deltaTime);
+    }
+
+    public void Jump()
+    {
+        
+    }
+
+    public void Crouch()
+    {
+        
+    }
+
+    public void Slide()
+    {
+        
     }
 
     void CameraFovChange(Camera camera, bool isSprinting, bool isStaminaActivatable, float fovStandardValue, float fovValueChange)
@@ -114,6 +153,8 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
 
         controller = GetComponent<CharacterController>();
         playerStatsScript = GetComponent<Script_Player_Stats>();
+
+        standingHeight = controller.height;
     }
 
     // Update is called once per frame
@@ -121,6 +162,9 @@ public class Script_Player_Movement_Singleplayer : MonoBehaviour, CharacterMovem
     {
         Look();
         Movement();
+        Jump();
+
+        //ApplyGravity(velocity, gravityForce);
         CameraFovChange(playerCamera, isSprinting, playerStatsScript.isStaminaActivatable, fovStandardValue, fovValueChangeAmount);
         WeaponHolderSprintTransform(weaponHolderTransform, isSprinting, playerStatsScript.isStaminaActivatable, weaponSprintRotation, weaponSprintPosition);
     }

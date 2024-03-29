@@ -8,21 +8,28 @@ public class Script_HUD_Info : MonoBehaviour
 {
     [SerializeField] Script_Weapon_Activation currentWeapon;
     [SerializeField] Script_Player_Stats currentPlayerStats;
-    [SerializeField] TextMeshProUGUI healthCounter;
+    int maxHealth;
+
+    [Header("Ammo Statistics Variables")]
     [SerializeField] TextMeshProUGUI ammoCounter;
     [SerializeField] TextMeshProUGUI maxAmmoCounter;
+
+    [Header("Player Statistics Variables")]
+    [SerializeField] Slider healthBar;
     [SerializeField] Slider staminaBar;
+
     [SerializeField] RawImage hitmarker;
 
     private void Start()
     {
+        maxHealth = currentPlayerStats.characterHealth;
         hitmarker.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        ShowCurrentPlayerStats(currentPlayerStats.characterHealth, currentPlayerStats.characterStamina, currentPlayerStats.characterMaxStamina);
+        ShowCurrentPlayerStats(healthBar, currentPlayerStats.characterHealth, maxHealth, staminaBar, currentPlayerStats.characterStamina, currentPlayerStats.characterMaxStamina);
 
         ShowCurrentAmmo(currentWeapon.currentAmmo, currentWeapon.currentWeaponData.weaponMagazineSize);
 
@@ -35,9 +42,9 @@ public class Script_HUD_Info : MonoBehaviour
         maxAmmoCounter.text = reserveAmmo.ToString();
     }
 
-    void ShowCurrentPlayerStats(int playerHealth, float playerStamina, float playerMaxStamina)
+    void ShowCurrentPlayerStats(Slider healthBar, int playerHealth, int playerMaxHealth, Slider staminaBar, float playerStamina, float playerMaxStamina)
     {
-        healthCounter.text = playerHealth.ToString();
+        healthBar.value = playerHealth / playerMaxHealth;
 
         staminaBar.value = playerStamina / playerMaxStamina;
     }

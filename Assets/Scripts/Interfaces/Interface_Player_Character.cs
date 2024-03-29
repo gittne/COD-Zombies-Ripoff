@@ -6,6 +6,9 @@ public interface CharacterMovement
 {
     void Movement();
     void Look();
+    void Jump();
+    void Crouch();
+    void Slide();
 }
 
 public interface CharacterStats
